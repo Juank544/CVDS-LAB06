@@ -8,12 +8,30 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Calculadora</title>
         </h:head>
+        <style>
+            body {
+                background-image: url(wallpaper.jpg);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+            /* vamos a centrar */
+            .centrar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+
+        <div class="centrar">
         <h:body>
+
             <p:panel id="panel_principal" header="Calculadora">
                 <h:form id="calculadora_form">
                     <h:panelGrid columns="2">
-                        
-                        
+
+                        <p:outputLabel value="Juan Camilo Gil Vargas"/>
+                        <p:outputLabel value="Leidy Marcela Ducuara"/>
                         <p:outputLabel value="Lista:"/>
                         <p:inputText id="valores" type="text" binding="#{input}"/>
                         <p:outputLabel value="Media:"/>
@@ -24,6 +42,7 @@
                         <p:outputLabel value="#{calculadoraBean.varianza}"/>
                         <p:outputLabel value="Moda:"/>
                         <p:outputLabel value="#{calculadoraBean.moda}"/>
+
                     </h:panelGrid>
                     
                 </h:form>
@@ -31,4 +50,5 @@
             <p:commandButton value="Send" update="panel_principal" actionListener="#{calculadoraBean.calculate(input.value)}"/>
             <p:commandButton value="Restart" update="panel_principal" actionListener="#{calculadoraBean.restart}"/>
         </h:body>
+        </div>
     </html>
